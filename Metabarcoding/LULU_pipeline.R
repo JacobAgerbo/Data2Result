@@ -26,6 +26,6 @@ Curated <- curated_result$curated_table
 tax_curated <- tax[match(rownames(Curated),rownames(tax)),]
 
 
-write.table(tax_curated, "Curated_Tax.csv", sep = ',', row.names = FALSE)                            
-write.table(curated_result$curated_table, "Curated_Table.txt", sep = ',')                            
+write.table(tax_curated, "Curated_Tax.csv", sep = ',', row.names = TRUE)                            
+write.table(curated_result$curated_table, "Curated_Table.txt", sep = ',', row.names = TRUE)                            
                             
