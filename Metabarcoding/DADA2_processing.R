@@ -45,7 +45,7 @@ filtRs <- file.path(path, "filtered", paste0(sample.names, "_R_filt.fastq.gz"))
 names(filtFs) <- sample.names
 names(filtRs) <- sample.names
 
-filtered_out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE, truncLen=c(100,100), compress=TRUE, multithread=TRUE)
+filtered_out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, maxN=0, maxEE=c(2,5), truncQ=2, rm.phix=TRUE, truncLen=c(250,250), compress=TRUE, multithread=TRUE)
 ### Store filtered reads as R dataset
 saveRDS(filtered_out, "filtered_out.RData")
 #r filtering based on error rates
@@ -86,7 +86,7 @@ dada_reverse <- dada(derep_reverse, err=err_reverse_reads, multithread=TRUE)
 #Merge reads
 #Merging forward and reverse reads
 merged_amplicons <- mergePairs(dada_forward, derep_forward, dada_reverse,
-                               derep_reverse, minOverlap=0, verbose=TRUE)
+                               derep_reverse, minOverlap=15, verbose=TRUE)
 ### Store filtered amplicons as R dataset
 saveRDS(merged_amplicons, "merged_amplicons.RData")
 
