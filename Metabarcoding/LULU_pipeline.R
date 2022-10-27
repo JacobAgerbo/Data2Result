@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 #### LULU PIPELINE ####
 #library(devtools)
 #install_github("tobiasgf/lulu")  
